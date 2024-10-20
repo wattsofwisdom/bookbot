@@ -4,6 +4,16 @@ def count_words(content):
     word_count = len(words)
     print(word_count)
 
+def count_chars(content):
+    """Count the number of characters"""
+    cnt = {}
+    for c in content:
+        if c in cnt:
+            cnt[c] += 1
+        else:
+            cnt[c] = 1
+    return cnt
+
 # Open the file in read mode
 book = open("books/frankenstein.txt","r")
 
@@ -11,6 +21,7 @@ book = open("books/frankenstein.txt","r")
 content = book.read()
 # print(content)
 count_words(content)
+print(count_chars(content.lower()))
 
 # close the file
 book.close()
